@@ -1,5 +1,6 @@
 # website
 The new Kleros website.
+------------------------------------
 关于在windows上运行该系统遇到的一些坑：
 
 - 提示
@@ -39,13 +40,13 @@ Can't resolve 'bignumber.js' in 'D:\github\website\src\pages'
 ```
 简单，安装bignumer.js即可 `npm install bignumber.js`
 
-- 成功运行，访问  http://localhost:8000/时报错URL无效
+- 成功运行，访问  `http://localhost:8000/`时报错URL无效
 
-这是由于interface.js文件初始化web3的时候，需要提供web3 provider url，而代码中将这个URL的值设置在环境变量(process.env.GATSBY_WEB3_PROVIDER_URL)里。
+这是由于interface.js文件初始化web3的时候，需要提供web3 provider url，而代码中将这个URL的值设置在环境变量(`process.env.GATSBY_WEB3_PROVIDER_URL`)里。
 ```
 var web3 = new Web3(new Web3.providers.WebsocketProvider(process.env.GATSBY_WEB3_PROVIDER_URL))
 ```
-Kleros官方slack的dev频道里要到了相关的URL 'wss://mainnet.infura.io/ws/v3/b0aa0426596b431186f7ad5027xxxxxx'，在windows系统环境变量里设置没生效，直接在代码里替换了
+Kleros官方slack的dev频道里要到了相关的URL `wss://mainnet.infura.io/ws/v3/b0aa0426596b431186f7ad5027xxxxxx`，在windows系统环境变量里设置没生效，直接在代码里替换了
 ```
 var web3 = new Web3(new Web3.providers.WebsocketProvider(wss://mainnet.infura.io/ws/v3/b0aa0426596b431186f7ad5027xxxxxx))
 ```
